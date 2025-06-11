@@ -1,0 +1,29 @@
+{
+  "name": "task-tracker-app",
+  "version": "1.0.0",
+  "description": "Secure task management system with JWT authentication",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cd server && node dist/server.js",
+    "dev": "concurrently \"npm run server:watch\" \"wait-on tcp:3001 && npm run client:start\"",
+    "server": "cd server && npm start",
+    "server:watch": "cd server && npm run dev",
+    "setup": "cd server && npm i && cd ../client && npm i",
+    "client:build": "cd client && npm run build",
+    "client:start": "cd client && npm run dev",
+    "compile": "npm run compile:frontend && npm run compile:backend",
+    "compile:frontend": "cd client && npm install && npm run build",
+    "compile:backend": "cd server && npm install && npm run build",
+    "init-db": "cd server && npm run seed",
+    "deploy-build": "./build.sh"
+  },
+  "keywords": ["task", "management", "jwt", "security"],
+  "author": "Sheikh Iftekhar",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.1.3",
+    "wait-on": "^7.2.0"
+  }
+}
